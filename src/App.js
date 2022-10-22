@@ -7,12 +7,13 @@ export default function App() {
   const [data, setData] = React.useState([]);
   const [state, setState] = React.useState(false);
 
-  const findData = (e) => {
+  const findData = () => {
+    const input = document.getElementById('inputNama');
     const newData = DataMahasiswa.filter((mahasiswa) =>
-      mahasiswa.nama_lengkap.toLowerCase().includes(e.toLowerCase())
+      mahasiswa.nama_lengkap.toLowerCase().includes(input.value.toLowerCase())
     );
-    e === "" ? setData([]) : setData(newData);
-    e === "" ? setState(false) : setState(true);
+    input.value === "" ? setData([]) : setData(newData);
+    input.value === "" ? setState(false) : setState(true);
     console.log(newData);
   };
 
@@ -25,12 +26,18 @@ export default function App() {
         "align-content": "center",
       }}
     >
-      <h2 style={{ "align-self": "center" }}>Kelompok 03:</h2>
+      <h2 style={{ "align-self": "center" }}>Kelompok 03</h2>
+
       <input
-        onChange={(data) => findData(data.target.value)}
+        id="inputNama"
         placeholder="Masukkan Nama Mahasiswa..."
         style={{ width: 400 }}
       />
+
+      <button onClick={() => findData()}>
+        Cari!
+      </button>
+
       <br />
 
       {data.length !== 0 ? (
