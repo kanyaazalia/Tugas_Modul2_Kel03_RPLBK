@@ -26,11 +26,16 @@ export default function App() {
     >
       <h2 style={{ "align-self": "center" }}>Kelompok 03:</h2>
       <input
-        onChange={(data) => findData(data.target.value)}
+        // onChange={(data) => findData(data.target.value)}
         placeholder="Masukkan Nim Mahasiswa..."
         style={{ width: 400 }}
       />
       <br />
+
+      <button onChange={(data) => findData(data.target.value)}>
+        Cari!
+      </button>
+
       {data.length !== 0 ? (
         data.map((mahasiswa, i) => {
           return <Card key={i} data={mahasiswa} i={i} />;
