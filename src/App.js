@@ -14,12 +14,14 @@ export default function App() {
       mahasiswa.nama_lengkap.toLowerCase().includes(inputRef.current.value.toLowerCase())
     );
 
-    if(!!inputRef.current.value){
+    if(!!!inputRef.current.value){
       setData([])
       setState(false)
+    }else{
+      setData(newData);
+      setState(true);
     }
-    setData(newData);
-    setState(true);
+    
     
     console.log(newData);
   };
