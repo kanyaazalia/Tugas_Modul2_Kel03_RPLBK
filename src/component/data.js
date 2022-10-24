@@ -1,4 +1,4 @@
-const data = [
+const dataAegis = [
     {
       nama_lengkap: "Fiki Rilo Pambudi",
       nama_panggilan: "Fiki",
@@ -1443,4 +1443,4 @@ const data = [
     },
   ];
   
-  export default data;
+  export default dataAegis;

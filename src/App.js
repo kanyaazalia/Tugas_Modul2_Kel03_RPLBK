@@ -1,19 +1,26 @@
 import "./App.css";
-import DataMahasiswa from "./component/Data.js";
-import Card from "./component/Card.jsx";
-import React from "react";
+import DataMahasiswa from "./component/data.js";
+import Card from "./component/card.jsx";
+import React, { useRef } from "react";
 
 export default function App() {
   const [data, setData] = React.useState([]);
   const [state, setState] = React.useState(false);
+  const inputRef = useRef()
 
   const findData = () => {
-    const input = document.getElementById('inputNama');
+    
     const newData = DataMahasiswa.filter((mahasiswa) =>
-      mahasiswa.nama_lengkap.toLowerCase().includes(input.value.toLowerCase())
+      mahasiswa.nama_lengkap.toLowerCase().includes(inputRef.current.value.toLowerCase())
     );
-    input.value === "" ? setData([]) : setData(newData);
-    input.value === "" ? setState(false) : setState(true);
+
+    if(!!inputRef.current.value){
+      setData([])
+      setState(false)
+    }
+    setData(newData);
+    setState(true);
+    
     console.log(newData);
   };
 
@@ -21,15 +28,15 @@ export default function App() {
     <div
       style={{
         display: "flex",
-        "flex-wrap": "wrap",
-        "flex-direction": "column",
-        "align-content": "center",
+        flexWrap: "wrap",
+        flexDirection: "column",
+        alignContent: "center",
       }}
     >
-      <h2 style={{ "align-self": "center" }}>Kelompok 03</h2>
+      <h2 style={{ alignSelf: "center" }}>Kelompok 03</h2>
 
       <input
-        id="inputNama"
+        ref={inputRef}
         placeholder="Masukkan Nama Mahasiswa..."
         style={{ width: 400 }}
       />
@@ -45,7 +52,7 @@ export default function App() {
           return <Card key={i} data={mahasiswa} i={i} />;
         })
       ) : state ? (
-        <h2 style={{ "align-self": "center" }}>Data Tidak Ditemukan</h2>
+        <h2 style={{ alignSelf: "center" }}>Data Tidak Ditemukan</h2>
       ) : (
         ""
       )}

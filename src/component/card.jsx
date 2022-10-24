@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card(props) {
   return (
-    <div style={{'background-color': `${props.i % 2 === 1 ? '#e6ca2e' : '#cc752e'}`, 'margin-bottom': 10, 'width': 398, 'border-radius': 10, 'padding':5}}>
+    <div style={{backgroundColor: `${props.i % 2 === 1 ? '#e6ca2e' : '#cc752e'}`, marginBottom: 10, width: 398, borderRadius: 10, padding:5}}>
       <table>
         <tbody>
           <tr>
