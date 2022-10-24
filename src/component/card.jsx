@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card(props) {
   return (
-    <div style={{backgroundColor: `${props.i % 2 === 1 ? '#e6ca2e' : '#cc752e'}`, marginBottom: 10, width: 398, borderRadius: 10, padding:5}}>
+    <div style={{'background-color': `${props.i % 2 === 1 ? '#EDA3C2' : '#D1E899'}`, 'margin-top': 10, 'margin-bottom': 10, 'width': 398, 'border-radius': 10, 'padding':5}}>
       <table>
         <tbody>
           <tr>
@@ -38,7 +38,7 @@ export default function Card(props) {
           <tr>
             <td>Hobi</td>
             <td>:</td>
-            <td>{props.data.hobi}</td>
+            <td>{props.data.hobi === undefined || props.data.hobi === null ? '-' : props.data.hobi}</td>
           </tr>
           <tr>
             <td>Tanggal Lahir</td>
